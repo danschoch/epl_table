@@ -31,3 +31,7 @@ Questions for Coaching session #1:
 - OO structure: matches as objects? or leave until next project (get rid of scores for previous fixture)?
 - Environment setup: new file and copy structure of labs or leave as is?
 - How to set up console and pry
+- Next Steps:
+  - Decide where/what to scraper
+  - if necessary, set up EplTable::Match class
+  - create scraper class(es)
