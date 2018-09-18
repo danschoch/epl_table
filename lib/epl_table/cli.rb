@@ -1,0 +1,3 @@
+class EplTable::CLI
+
+end
