@@ -14,7 +14,6 @@ class EplTable::CLI
     EplTable::Team.all.each do |team|
       team.table_view
     end
-    #EplTable::Team.table_test
   end
 
   def further_info
@@ -35,7 +34,6 @@ class EplTable::CLI
 
 
   def team_details(ranking)
-    #EplTable::Team.team_test
     team = EplTable::Team.find_team_by_rank(ranking)
     team.details_view
   end

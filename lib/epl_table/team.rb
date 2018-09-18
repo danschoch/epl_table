@@ -8,26 +8,6 @@ class EplTable::Team
 
   @@all = []
 
-
-
-    #puts <<-DOC.gsub(/^\s*/, "")
-#
-    #  1. Chelsea - 5 Wins, 3 Draws, 2 Losses - 18 pts
-    #  2. Spurs - 4 Wins, 2 Draws, 3 Losses - 14 pts
-  #  DOC
-
-
-  def self.team_test
-    team = self.new("Chelsea", "Stamford Bridge", "5", "3", "2", "18", "1", "Manchester City", "Burnley")
-    puts <<-DOC.gsub(/^\s*/, "")
-      #{team.name} - #{team.stadium}
-      No. #{team.ranking} in English Premier League
-      #{team.wins} Wins, #{team.draws} Draws, #{team.losses} Losses - #{team.table_points} Points
-      Previous Fixture: 2-3 Loss v. #{team.prev_opponent}
-      Next Fixture: #{team.next_opponent} (2-1-4)
-    DOC
-  end
-
   def initialize (name, stadium, wins, draws, losses, table_points, ranking, prev_opponent, next_opponent)
     @name = name
     @stadium = stadium
