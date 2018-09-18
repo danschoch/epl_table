@@ -24,3 +24,10 @@ Chelsea - Stamford Bridge, London
 5 Wins, 3 Draws, 2 Losses - 18 pts
 Previous Fixture : 2-3 Loss v. Manchester City
 Next Fixture: Burnley (2-1-4)
+
+
+
+Questions for Coaching session #1:
+- OO structure: matches as objects? or leave until next project (get rid of scores for previous fixture)?
+- Environment setup: new file and copy structure of labs or leave as is?
+- How to set up console and pry
