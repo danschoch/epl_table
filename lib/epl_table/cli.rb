@@ -19,9 +19,13 @@ class EplTable::CLI
   def further_info
     input = nil
     while input != "exit"
-      puts "Enter a team's table ranking for more detailed information or type exit."
+      puts "Enter a team's table ranking for more detailed information or type exit:"
       input = gets.strip.downcase
-      team_details(input)
+      if input.to_i.between?(1,20)
+        team_details(input)
+      elsif input != "exit"
+        puts "Please enter a valid ranking or type exit:"
+      end
     end
   end
 
