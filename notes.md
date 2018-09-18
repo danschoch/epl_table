@@ -29,6 +29,7 @@ Next Fixture: Burnley (2-1-4)
 
 Questions for Coaching session #1:
 - OO structure: matches as objects? or leave until next project (get rid of scores for previous fixture)?
+- Scrape epl table as a CSV table and interpret? or use css selectors as intended?
 - Environment setup: new file and copy structure of labs or leave as is?
 - How to set up console and pry
 - Next Steps:
