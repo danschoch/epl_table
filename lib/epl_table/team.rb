@@ -48,8 +48,8 @@ class EplTable::Team
   end
 
   def self.find_team_by_rank(ranking)
-    Team.all.find do |team|
-      ranking == team.ranking
+    EplTable::Team.all.detect do |team|
+      team.ranking == ranking
     end
   end
 
@@ -58,7 +58,14 @@ class EplTable::Team
     puts "#{self.ranking}. #{self.name} - #{self.wins} Wins, #{self.draws} Draws, #{self.losses} Losses - #{self.table_points} points"
   end
 
-end
+  def details_view
+    puts <<-DOC.gsub(/^\s*/, "")
+      #{self.name} - #{self.stadium}
+      No. #{self.ranking} in English Premier League
+      #{self.wins} Wins, #{self.draws} Draws, #{self.losses} Losses - #{self.table_points} Points
+      Previous Fixture: 2-3 Loss v. #{self.prev_opponent}
+      Next Fixture: #{self.next_opponent} (2-1-4)
+    DOC
+  end
 
-EplTable::Team.new("Chelsea", "Stamford Bridge", "5", "3", "2", "18", "1", "Manchester City", "Burnley")
-EplTable::Team.new("Manchester City", "Etihad Stadium", "4", "2", "3", "14", "2", "Arsenal", "Watford")
+end

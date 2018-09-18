@@ -35,8 +35,9 @@ class EplTable::CLI
 
 
   def team_details(ranking)
-    EplTable::Team.team_test
-    #team = Team.find_team_by_rank(ranking)
+    #EplTable::Team.team_test
+    team = EplTable::Team.find_team_by_rank(ranking)
+    team.details_view
   end
 
   def goodbye
