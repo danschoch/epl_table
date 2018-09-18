@@ -8,7 +8,7 @@ class EplTable::CLI
   end
 
   def display_table
-    puts <<-DOC
+    puts <<-DOC.gsub(/^\s*/, "")
       1. Chelsea - 5 Wins, 3 Draws, 2 Losses - 18 pts
       2. Spurs - 4 Wins, 2 Draws, 3 Losses - 14 pts
     DOC
