@@ -6,6 +6,7 @@ class EplTable::CLI
     puts "This is the current EPL table:"
     display_table
     further_info
+    goodbye
   end
 
   def display_table
@@ -16,9 +17,12 @@ class EplTable::CLI
   end
 
   def further_info
-    puts "Enter a team's table ranking for more detailed information"
-    input = gets.strip
-    team_details(input)
+    input = nil
+    while input != "exit"
+      puts "Enter a team's table ranking for more detailed information or type exit."
+      input = gets.strip.downcase
+      team_details(input)
+    end
   end
 
   def find_team_by_rank(ranking)
@@ -30,7 +34,10 @@ class EplTable::CLI
   def team_details(ranking)
     EplTable::Team.test
     #team = find_team_by_rank(ranking)
+  end
 
+  def goodbye
+    puts "Check back soon for updated rankings!"
   end
 
 end
