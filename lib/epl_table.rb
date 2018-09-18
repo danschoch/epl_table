@@ -3,3 +3,4 @@
 
 require_relative "epl_table/version"
 require_relative './epl_table/cli'
+require_relative './epl_table/team'

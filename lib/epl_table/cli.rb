@@ -28,10 +28,9 @@ class EplTable::CLI
   end
 
   def team_details(ranking)
-    team = find_team_by_rank(ranking)
-    puts 
+    EplTable::Team.test
+    #team = find_team_by_rank(ranking)
+
   end
 
 end
-
-#find team iteration
