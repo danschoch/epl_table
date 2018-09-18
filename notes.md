@@ -11,7 +11,7 @@ How to build a CLI gem
 
 - a CLI for seeing the current EPL standings and providing a bit more of info about each team
 
-user types epl-standings
+user types epl-table
 
 see current epl rankings
 
