@@ -13,6 +13,29 @@ class EplTable::Team
     DOC
   end
 
+  def initialize (name, stadium, location, wins, draws, losses, table_points, ranking, prev_opponent, next_opponent)
+    @name = name
+    @stadium = stadium
+    @location = location
+    @wins = wins
+    @draws = draws
+    @losses = losses
+    @table_points = table_points
+    @ranking = ranking
+    @prev_opponent = prev_opponent
+    @next_opponent = next_opponent
+  end
+
+  #Class Methods
+
+  def self.find_team_by_rank(ranking)
+    Team.all.find do |team|
+      ranking == team.ranking
+    end
+  end
+
+  #Instance Methods
+
 
 end
 

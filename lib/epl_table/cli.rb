@@ -29,15 +29,10 @@ class EplTable::CLI
     end
   end
 
-  def find_team_by_rank(ranking)
-    Team.all.find do |team|
-      ranking == team.ranking
-    end
-  end
 
   def team_details(ranking)
     EplTable::Team.test
-    #team = find_team_by_rank(ranking)
+    #team = Team.find_team_by_rank(ranking)
   end
 
   def goodbye
