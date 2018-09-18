@@ -3,6 +3,7 @@
 class EplTable::CLI
 
   def call
+    
     puts "This is the current EPL table:"
     puts ""
     display_table
