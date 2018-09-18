@@ -8,7 +8,11 @@ class EplTable::Team
 
   @@all = []
 
-  def self.test
+  def self.table_test
+
+  end
+
+  def self.team_test
     team = self.new("Chelsea", "Stamford Bridge", "London", "5", "3", "2", "18", "1", "Manchester City", "Burnley")
     puts <<-DOC.gsub(/^\s*/, "")
       #{team.name} - #{team.stadium} - #{team.location}
