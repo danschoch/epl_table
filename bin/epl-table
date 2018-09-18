@@ -1,3 +1,5 @@
 #!/usr/bin/env ruby
 
+require './lib/epl_table'
+
 EplTable::CLI.new.call
