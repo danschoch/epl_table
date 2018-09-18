@@ -6,7 +6,6 @@ class EplTable::CLI
     puts "This is the current EPL table:"
     display_table
     further_info
-    team_details
   end
 
   def display_table
@@ -19,9 +18,20 @@ class EplTable::CLI
   def further_info
     puts "Enter a team's table ranking for more detailed information"
     input = gets.strip
+    team_details(input)
+  end
+
+  def find_team_by_rank(ranking)
     Team.all.find do |team|
-      input == team.ranking
+      ranking == team.ranking
     end
   end
 
+  def team_details(ranking)
+    team = find_team_by_rank(ranking)
+    puts 
+  end
+
 end
+
+#find team iteration
