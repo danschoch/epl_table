@@ -3,12 +3,26 @@
 require "bundler/setup"
 require "epl_table"
 
+
+
+#def self.test_team_1
+  #self.new("Chelsea", "Stamford Bridge", "5", "3", "2", "18", "1", "Manchester City", "Burnley")
+#end
+
+#def self.test_team_2
+  #self.new("Manchester City", "Etihad Stadium", "4", "2", "3", "14", "2", "Arsenal", "Watford")
+#end
+
+#def self.test
+  #self.test_team_1
+  #self.test_team_2
+
 # You can add fixtures and/or initialization code here to make experimenting
 # with your gem easier. You can also use a different console, if you like.
 
 # (If you use this, don't forget to add pry to your Gemfile!)
-# require "pry"
-# Pry.start
+require "pry"
+Pry.start
 
 require "irb"
 IRB.start(__FILE__)
