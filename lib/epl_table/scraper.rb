@@ -6,7 +6,10 @@ class EplTable::Scraper
     doc = Nokogiri::HTML(open("https://www.premierleague.com/tables"))
     table_row = doc.css('table').css('tbody.tableBodyContainer').css('tr[data-compseason="210"]')
     team_name = table_row.css('td.team').css('.long').first.text
+    team_wins = table_row.css('td')[4].text
+    team_draws = table_row.css('td')[5].text
+    team_losses = table_row.css('td')[6].text
 
-    team_name
+    team_losses
   end
 end
