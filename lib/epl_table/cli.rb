@@ -4,12 +4,19 @@ class EplTable::CLI
 BASE_PATH = "https://www.premierleague.com/"
 
   def call
-
+    make_teams
     puts "This is the current EPL table:"
     puts ""
     display_table
     further_info
     goodbye
+  end
+
+  def make_teams
+    team_array = EplTable::Scraper.new.scrape_table
+    EplTable::Team.create_from_collection(team_array)
+  end
+
   end
 
   def display_table
