@@ -1,13 +1,6 @@
 #should matches (prev and next) be separate objects?
 #make sure to reference team instances for prev_opponent and next_opponent
 
-class EplTable::Scraper
-  def scrape_teams
-    doc = Nokogirl::HTML(open("https://www.premierleague.com/tables"))
-    binding.pry
-  end
-end
-
 class EplTable::Team
 
   attr_accessor :name, :stadium, :wins, :draws, :losses, :table_points,
