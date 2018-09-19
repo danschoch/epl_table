@@ -19,4 +19,10 @@ class EplTable::Scraper
     end
   end
 
+  def scrape_team_page(url)
+    doc = Nokogiri::HTML(open(url))
+    stadium_name = doc.css("div.stadiumName").css("a").css("span").text
+    stadium_name
+  end
+
 end
