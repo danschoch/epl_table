@@ -20,6 +20,7 @@ class EplTable::Scraper
   end
 
   def scrape_team_page(url)
+    team_info_hash = {}
     doc = Nokogiri::HTML(open(url))
     #fixture_table = doc.css("#mainContent div.wrapper.hasFixedSidebar nav div:nth-child(3)")
     next_fixture = doc.css("#mainContent > div.wrapper.hasFixedSidebar > nav > div:nth-child(3) > a:nth-child(3)")
@@ -28,6 +29,7 @@ class EplTable::Scraper
     #stadium_name = doc.css("div.stadiumName").css("a").css("span").text
     #prev_opponent = doc.css("")
     team_two_fix
+    team_info_hash = {poss_next_opp: team_one_fix, poss_next_opp_2: team_two_fix}
   end
 
 end
