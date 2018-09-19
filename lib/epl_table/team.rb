@@ -45,8 +45,8 @@ class EplTable::Team
   end
 
   #Instance Methods
-  def add_student_attributes(attributes_hash)
-    attributes_hash.each {|k,v| send("#{k}=", v)}
+  def add_team_info(info_hash)
+    info_hash.each {|k,v| send("#{k}=", v)}
   end
 
   def table_view

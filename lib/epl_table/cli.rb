@@ -5,7 +5,7 @@ BASE_PATH = "https://www.premierleague.com/"
 
   def call
     make_teams
-    add_info
+    #add_info
     puts "This is the current EPL table:"
     puts ""
     display_table
