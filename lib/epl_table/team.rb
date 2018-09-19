@@ -4,20 +4,25 @@
 class EplTable::Team
 
   attr_accessor :name, :stadium, :wins, :draws, :losses, :table_points,
-  :ranking, :prev_opponent, :next_opponent
+  :ranking, :prev_opponent, :next_opponent, :team_url
 
   @@all = []
 
-  def initialize (name, stadium, wins, draws, losses, table_points, ranking, prev_opponent, next_opponent)
-    @name = name
-    @stadium = stadium
-    @wins = wins
-    @draws = draws
-    @losses = losses
-    @table_points = table_points
-    @ranking = ranking
-    @prev_opponent = prev_opponent
-    @next_opponent = next_opponent
+  #def initialize (name, stadium, wins, draws, losses, table_points, ranking, prev_opponent, next_opponent)
+    #@name = name
+    #@stadium = stadium
+    #@wins = wins
+    #@draws = draws
+    #@losses = losses
+    #@table_points = table_points
+    #@ranking = ranking
+    #@prev_opponent = prev_opponent
+    #@next_opponent = next_opponent
+    #@@all << self
+  #end
+
+  def initialize (team_hash)
+    team_hash.each {|k,v| send("#{k}=", v)}
     @@all << self
   end
 
@@ -33,7 +38,17 @@ class EplTable::Team
     end
   end
 
+  def self.create_from_collection(collection)
+    collection.each do |team|
+      self.new(team)
+    end
+  end
+
   #Instance Methods
+  def add_student_attributes(attributes_hash)
+    attributes_hash.each {|k,v| send("#{k}=", v)}
+  end
+
   def table_view
     puts "#{self.ranking}. #{self.name} - #{self.wins} Wins, #{self.draws} Draws, #{self.losses} Losses - #{self.table_points} points"
   end

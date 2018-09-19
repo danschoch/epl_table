@@ -5,10 +5,11 @@ BASE_PATH = "https://www.premierleague.com/"
 
   def call
     make_teams
+    add_info
     puts "This is the current EPL table:"
     puts ""
     display_table
-    further_info
+    display_more_info
     goodbye
   end
 
@@ -17,7 +18,13 @@ BASE_PATH = "https://www.premierleague.com/"
     EplTable::Team.create_from_collection(team_array)
   end
 
+  def add_info
+    EplTable::Team.all.each do |team|
+      info = EplTable::Scraper.scrape_team_page(BASE_PATH + team.team_url)
+      student.add_team_info(info)
+    end
   end
+
 
   def display_table
     EplTable::Team.all.each do |team|
@@ -25,7 +32,7 @@ BASE_PATH = "https://www.premierleague.com/"
     end
   end
 
-  def further_info
+  def display_more_info
     input = nil
     while input != "exit"
       puts ""
