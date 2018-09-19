@@ -4,6 +4,7 @@
 require_relative "epl_table/version"
 require_relative './epl_table/cli'
 require_relative './epl_table/team'
+require_relative './epl_table/scraper'
 
 #Test team instances - DELETE after getting scrapers to work
 EplTable::Team.new("Chelsea", "Stamford Bridge", "5", "3", "2", "18", "1", "Manchester City", "Burnley")
