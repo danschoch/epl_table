@@ -1,9 +1,10 @@
 #CLI controller
 
 class EplTable::CLI
+BASE_PATH = "https://www.premierleague.com/"
 
   def call
-    
+
     puts "This is the current EPL table:"
     puts ""
     display_table

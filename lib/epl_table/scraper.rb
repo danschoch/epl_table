@@ -9,7 +9,9 @@ class EplTable::Scraper
     team_wins = table_row.css('td')[4].text
     team_draws = table_row.css('td')[5].text
     team_losses = table_row.css('td')[6].text
+    team_points = table_row.css('td')[10].text
+    team_url = table_row.css('td.team').css("a[href]").first['href']
 
-    team_losses
+    team_url
   end
 end
