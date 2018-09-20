@@ -34,20 +34,27 @@ BASE_PATH = "https://www.premierleague.com/"
 
   def display_more_info
     input = nil
+    puts ""
+    puts "Enter a team's table ranking for more detailed information or type exit:"
+
     while input != "exit"
-      puts ""
-      puts "Enter a team's table ranking for more detailed information, type 'table' to return to the table, or type exit:"
       input = gets.strip.downcase
       if input.to_i.between?(1,20)
         puts ""
         team_details(input)
+        puts ""
+        puts "Enter a team's table ranking for more detailed information, type 'table' to return to the table, or type exit:"
       elsif input == "table"
+        puts ""
         display_table
+        puts ""
+        puts "Enter a team's table ranking for more detailed information or type exit:"
       elsif input != "exit"
         puts ""
         puts "Please enter a valid ranking, or type table or exit:"
       end
     end
+
   end
 
 

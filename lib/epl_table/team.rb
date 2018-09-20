@@ -1,6 +1,3 @@
-#should matches (prev and next) be separate objects?
-#make sure to reference team instances for prev_opponent and next_opponent
-
 class EplTable::Team
 
   attr_accessor :name, :website, :wins, :draws, :losses, :table_points,
