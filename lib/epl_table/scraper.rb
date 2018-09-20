@@ -28,8 +28,9 @@ class EplTable::Scraper
     team_two_fix = next_fixture.css(".teamName")[1].css('abbr').first['title']
     #stadium_name = doc.css("div.stadiumName").css("a").css("span").text
     #prev_opponent = doc.css("")
-    team_two_fix
+    #team_two_fix
     team_info_hash = {poss_next_opp: team_one_fix, poss_next_opp_2: team_two_fix}
+    team_info_hash
   end
 
 end

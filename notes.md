@@ -36,3 +36,5 @@ Questions for Coaching session #1:
   - Decide where/what to scraper
   - if necessary, set up EplTable::Match class
   - create scraper class(es)
+
+EplTable::Scraper.new.scrape_team_page("https://www.premierleague.com/clubs/4/Chelsea/overview")

@@ -5,7 +5,7 @@ BASE_PATH = "https://www.premierleague.com/"
 
   def call
     make_teams
-    #add_info
+    add_info
     puts "This is the current EPL table:"
     puts ""
     display_table
@@ -20,8 +20,8 @@ BASE_PATH = "https://www.premierleague.com/"
 
   def add_info
     EplTable::Team.all.each do |team|
-      info = EplTable::Scraper.scrape_team_page(BASE_PATH + team.team_url)
-      student.add_team_info(info)
+      info = EplTable::Scraper.new.scrape_team_page(BASE_PATH + team.team_url)
+      team.add_team_info(info)
     end
   end
 
