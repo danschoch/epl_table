@@ -34,7 +34,7 @@ class EplTable::Team
   end
 
   #Instance Methods
-  
+
   def add_team_info(info_hash)
     info_hash.each do |k, v|
       if k.to_s.include?("poss_next_opp") && v == self.name
@@ -49,14 +49,18 @@ class EplTable::Team
   end
 
   def table_view
-    puts "#{self.ranking}. #{self.name} - #{self.wins} Wins, #{self.draws} Draws, #{self.losses} Losses - #{self.table_points} points"
+    if self.ranking.to_i.between?(1,9)
+    puts "#{self.ranking}.  #{self.name} - #{self.wins} Won, #{self.draws} Drawn, #{self.losses} Lost - #{self.table_points} Points"
+    else
+    puts "#{self.ranking}. #{self.name} - #{self.wins} Won, #{self.draws} Drawn, #{self.losses} Lost - #{self.table_points} Points"
+    end
   end
 
   def details_view
     puts <<-DOC.gsub(/^\s*/, "")
       #{self.name} - #{self.website}
       No. #{self.ranking} in English Premier League
-      #{self.wins} Wins, #{self.draws} Draws, #{self.losses} Losses - #{self.table_points} Points
+      #{self.wins} Won, #{self.draws} Drawn, #{self.losses} Lost - #{self.table_points} Points
       Previous Fixture:  #{self.prev_score} #{self.prev_result} v. #{self.poss_prev_opp || self.poss_prev_opp_2}
       Next Fixture: #{self.poss_next_opp || self.poss_next_opp_2}
     DOC
