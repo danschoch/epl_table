@@ -26,10 +26,17 @@ class EplTable::Scraper
     next_fixture = doc.css("#mainContent > div.wrapper.hasFixedSidebar > nav > div:nth-child(3) > a:nth-child(3)")
     team_one_fix = next_fixture.css(".teamName")[0].css('abbr').first['title']
     team_two_fix = next_fixture.css(".teamName")[1].css('abbr').first['title']
-    #stadium_name = doc.css("div.stadiumName").css("a").css("span").text
-    #prev_opponent = doc.css("")
-    #team_two_fix
-    team_info_hash = {poss_next_opp: team_one_fix, poss_next_opp_2: team_two_fix}
+
+    prev_result = doc.css("#mainContent > div.wrapper.hasFixedSidebar > nav > div:nth-child(4) > a:nth-child(3)")
+    team_one_res = prev_result.css(".teamName")[0].css('abbr').first['title']
+    team_two_res = prev_result.css(".teamName")[1].css('abbr').first['title']
+    result = prev_result.css(".teamForm").text.upcase
+    score = prev_result.css(".score").inner_html.gsub("<span>","").gsub("</span>","")
+
+    team_website = doc.css("#mainContent > header > div.wrapper > div > div > div.clubDetails > div.website > a").text
+
+    team_info_hash = {poss_next_opp: team_one_fix, poss_next_opp_2: team_two_fix, poss_prev_opp: team_one_res, poss_prev_opp_2: team_two_res,
+    prev_result: result, prev_score: score, website: team_website}
     team_info_hash
   end
 

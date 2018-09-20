@@ -3,24 +3,12 @@
 
 class EplTable::Team
 
-  attr_accessor :name, :stadium, :wins, :draws, :losses, :table_points,
-  :ranking, :prev_opponent, :next_opponent, :team_url, :poss_next_opp, :poss_next_opp_2
-  attr_writer
+  attr_accessor :name, :website, :wins, :draws, :losses, :table_points,
+  :ranking, :prev_opponent, :next_opponent, :team_url, :poss_next_opp, :poss_next_opp_2,
+  :poss_prev_opp, :poss_prev_opp_2, :prev_result, :prev_score
 
   @@all = []
 
-  #def initialize (name, stadium, wins, draws, losses, table_points, ranking, prev_opponent, next_opponent)
-    #@name = name
-    #@stadium = stadium
-    #@wins = wins
-    #@draws = draws
-    #@losses = losses
-    #@table_points = table_points
-    #@ranking = ranking
-    #@prev_opponent = prev_opponent
-    #@next_opponent = next_opponent
-    #@@all << self
-  #end
 
   def initialize (team_hash)
     team_hash.each {|k,v| send("#{k}=", v)}
@@ -47,20 +35,15 @@ class EplTable::Team
 
   #Instance Methods
   def add_team_info(info_hash)
-    #info_hash = info_hash.delete_if {|k,v| v == self.name}
     info_hash.each do |k, v|
-      #if k.to_s.include?("poss_next_opp") && v != self.name
-        #k.to_s.replace("next_opponent").to_sym
-      #end
       if k.to_s.include?("poss_next_opp") && v == self.name
         info_hash.delete(k)
       end
+
+      if k.to_s.include?("poss_prev_opp") && v == self.name
+        info_hash.delete(k)
+      end
     end
-    #if info_hash.keys.include?("poss_next_opp")
-      #info_hash[:next_opponent] = info_hash.delete("poss_next_opp")
-    #if info_hash.keys.include?("poss_next_opp_2")
-      #info_hash[:next_opponent] = info_hash.delete("poss_next_opp_2")
-    #end
     info_hash.each {|k,v| send("#{k}=", v)}
   end
 
@@ -70,11 +53,11 @@ class EplTable::Team
 
   def details_view
     puts <<-DOC.gsub(/^\s*/, "")
-      #{self.name} - #{self.stadium}
+      #{self.name} - #{self.website}
       No. #{self.ranking} in English Premier League
       #{self.wins} Wins, #{self.draws} Draws, #{self.losses} Losses - #{self.table_points} Points
-      Previous Fixture: 2-3 Loss v. #{self.prev_opponent}
-      Next Fixture: #{self.poss_next_opp || self.poss_next_opp_2} (2-1-4)
+      Previous Fixture:  #{self.prev_score} #{self.prev_result} v. #{self.poss_prev_opp || self.poss_prev_opp_2}
+      Next Fixture: #{self.poss_next_opp || self.poss_next_opp_2}
     DOC
   end
 
