@@ -4,7 +4,7 @@
 class EplTable::Team
 
   attr_accessor :name, :website, :wins, :draws, :losses, :table_points,
-  :ranking, :prev_opponent, :next_opponent, :team_url, :poss_next_opp, :poss_next_opp_2,
+  :ranking, :team_url, :poss_next_opp, :poss_next_opp_2,
   :poss_prev_opp, :poss_prev_opp_2, :prev_result, :prev_score
 
   @@all = []
@@ -34,6 +34,7 @@ class EplTable::Team
   end
 
   #Instance Methods
+  
   def add_team_info(info_hash)
     info_hash.each do |k, v|
       if k.to_s.include?("poss_next_opp") && v == self.name
