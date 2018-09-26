@@ -5,7 +5,7 @@ BASE_PATH = "https://www.premierleague.com/"
 
   def call
     make_teams
-    add_info
+    #add_info
     puts "This is the current EPL table:"
     puts ""
     display_table
@@ -18,11 +18,9 @@ BASE_PATH = "https://www.premierleague.com/"
     EplTable::Team.create_from_collection(team_array)
   end
 
-  def add_info
-    EplTable::Team.all.each do |team|
-      info = EplTable::Scraper.new.scrape_team_page(BASE_PATH + team.team_url)
-      team.add_team_info(info)
-    end
+  def add_info(team)
+    info = EplTable::Scraper.new.scrape_team_page(BASE_PATH + team.team_url)
+    team.add_team_info(info)
   end
 
 
@@ -41,6 +39,8 @@ BASE_PATH = "https://www.premierleague.com/"
       input = gets.strip.downcase
       if input.to_i.between?(1,20)
         puts ""
+        team = EplTable::Team.all[input.to_i-1]
+        add_info(team) if team.prev_result == nil
         team_details(input)
         puts ""
         puts "Enter a team's table ranking for more detailed information, type 'table' to return to the table, or type exit:"

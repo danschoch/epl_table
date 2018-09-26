@@ -1,8 +1,8 @@
-require 'nokogiri'
-require 'open-uri'
+
 
 class EplTable::Scraper
   def scrape_table
+    puts "*************Scraping Teams********"
     doc = Nokogiri::HTML(open("https://www.premierleague.com/tables"))
     table_row = doc.css('table').css('tbody.tableBodyContainer').css('tr[data-compseason="210"]')
     table_row.collect do |row|
@@ -21,8 +21,9 @@ class EplTable::Scraper
 
   def scrape_team_page(url)
     team_info_hash = {}
+      puts "*************Scraping Team********"
     doc = Nokogiri::HTML(open(url))
-  
+
     next_fixture = doc.css("#mainContent > div.wrapper.hasFixedSidebar > nav > div:nth-child(3) > a:nth-child(3)")
     team_one_fix = next_fixture.css(".teamName")[0].css('abbr').first['title']
     team_two_fix = next_fixture.css(".teamName")[1].css('abbr').first['title']
