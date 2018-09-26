@@ -37,4 +37,6 @@ Questions for Coaching session #1:
   - if necessary, set up EplTable::Match class
   - create scraper class(es)
 
-EplTable::Scraper.new.scrape_team_page("https://www.premierleague.com/clubs/4/Chelsea/overview")
+Notes for code review:
+- CLI display_more_info method has redundant elsif statement for the while loop
+- 
